@@ -1,11 +1,13 @@
 {
-  "name": "weather-app",
+  "name": "todo-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "start": "webpack serve",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -22,13 +24,12 @@
   "homepage": "https://xnoxtm.github.io/weather-app",
   "devDependencies": {
     "css-loader": "^7.1.4",
-    "eslint": "^10.5.0",
     "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.7",
     "style-loader": "^4.0.0",
     "webpack": "^5.107.2",
     "webpack-cli": "^7.0.3",
-    "webpack-dev-server": "^5.2.5"
+    "webpack-dev-server": "^5.2.4"
   }
 }
