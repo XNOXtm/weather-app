@@ -13,7 +13,6 @@ export async function getData(city) {
     let weatherData = await response.json();
     //   console.log(weatherData.currentConditions.icon);
 
-    console.log(city + ":");
     const currentTemp = await weatherData.currentConditions.temp;
     const currentTempCelsius = convertToCelsius(currentTemp);
 
