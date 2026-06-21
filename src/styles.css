@@ -1,7 +1,9 @@
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: sans-serif;
   background: linear-gradient(135deg, #000b18, #02386e);
-  height: 100vh;
 }
 * {
   margin: 0;
@@ -14,23 +16,25 @@ ul {
   list-style: none;
 }
 main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15vh;
+}
+
+form,
+#info {
+  border: 2px solid #033c76;
+  border-radius: 12px;
+  background-color: #003e779d;
+  backdrop-filter: blur(10px);
+  color: rgb(123, 187, 242);
 }
 
 form {
   display: flex;
   flex-direction: column;
-
   padding: 10px;
-
-  border: 2px solid #02386e;
-  border-radius: 12px;
-  background-color: #003e779d;
-  backdrop-filter: blur(10px);
-  color: rgb(123, 187, 242);
 }
 
 input {
@@ -63,4 +67,40 @@ button:hover {
 }
 button:active {
   background-color: #6b9dc9;
+}
+
+#info {
+  margin-top: 15px;
+  padding: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+#info-head,
+#other-temps,
+#sun-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+#info-head {
+  font-size: 35px;
+  color: #a8cdec;
+}
+#other-temps {
+  font-size: 13px;
+}
+
+#condition {
+  font-size: 20px;
+  color: #a8cdec;
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: #003e77;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
