@@ -6,20 +6,34 @@ export async function getData(city) {
   //   console.log(weatherData.currentConditions.icon);
 
   console.log(city + ":");
-  let currentTemp = await weatherData.currentConditions.temp;
-  console.log("Current Temp: " + convertToCelsius(currentTemp));
-  let maxTemp = await weatherData.days[0].tempmax;
-  console.log("Max. Temp: " + convertToCelsius(maxTemp));
-  let minTemp = await weatherData.days[0].tempmin;
-  console.log("Min. Temp: " + convertToCelsius(minTemp));
-  let feelsLikeTemp = await weatherData.days[0].feelslike;
-  console.log("Feels Like: " + convertToCelsius(feelsLikeTemp));
-  console.log(
-    "Humidity: " + Math.round(weatherData.currentConditions.humidity) + "%",
-  );
-  console.log("Conditions: " + weatherData.currentConditions.conditions);
-  console.log("Sunrise: " + weatherData.currentConditions.sunrise);
-  console.log("Sunset: " + weatherData.currentConditions.sunset);
+  const currentTemp = await weatherData.currentConditions.temp;
+  const currentTempCelsius = convertToCelsius(currentTemp);
+
+  const maxTemp = await weatherData.days[0].tempmax;
+  const maxTempCelsius = convertToCelsius(maxTemp);
+
+  const minTemp = await weatherData.days[0].tempmin;
+  const minTempCelsius = convertToCelsius(minTemp);
+
+  const feelsLikeTemp = await weatherData.days[0].feelslike;
+  const feelsLikeTempCelsius = convertToCelsius(feelsLikeTemp);
+
+  const humidity = Math.round(weatherData.currentConditions.humidity);
+
+  const conditions = weatherData.currentConditions.conditions;
+  const sunrise = weatherData.currentConditions.sunrise;
+  const sunset = weatherData.currentConditions.sunset;
+
+  return {
+    currentTempCelsius,
+    maxTempCelsius,
+    minTempCelsius,
+    feelsLikeTempCelsius,
+    humidity,
+    conditions,
+    sunrise,
+    sunset,
+  };
 }
 
 function convertToCelsius(temp) {
