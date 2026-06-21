@@ -90,6 +90,7 @@ li {
 }
 #other-temps {
   font-size: 13px;
+  align-items: center;
 }
 
 #condition {
