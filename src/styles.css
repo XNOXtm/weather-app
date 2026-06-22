@@ -44,6 +44,7 @@ input {
   border-radius: 8px;
   width: 300px;
   border: 2px solid #356590;
+  color: white;
 }
 input:focus,
 input:active {
@@ -72,6 +73,12 @@ button:active {
 #info {
   margin-top: 15px;
   padding: 20px;
+  display: none;
+}
+
+span {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
 }
 
 li {
@@ -79,9 +86,11 @@ li {
 }
 #info-head,
 #other-temps,
-#sun-time {
+#sun-time,
+#other-info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #info-head {
@@ -90,13 +99,14 @@ li {
 }
 #other-temps {
   font-size: 13px;
-  align-items: center;
 }
 
 #condition {
-  font-size: 20px;
   color: #a8cdec;
-  margin-bottom: 15px;
+  font-size: 20px;
+}
+img {
+  width: 70px;
 }
 
 footer {

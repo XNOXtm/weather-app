@@ -1,4 +1,5 @@
 import { getData } from "./controls.js";
+import { icons } from "./icon-render.js";
 
 const form = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
@@ -11,10 +12,15 @@ form.addEventListener("submit", (event) => {
 });
 
 let renderData = async function (city) {
-  const data = await getData(city);
   const cityName = city.charAt(0).toUpperCase() + city.slice(1);
 
   const infoCard = document.getElementById("info");
+  infoCard.style.display = "block";
+  infoCard.innerHTML = "<span>Loading...</span>";
+
+  const data = await getData(city);
+  infoCard.textContent = "";
+
   const infoContainer = document.createElement("ul");
 
   const otherTemps = document.createElement("li");
@@ -46,10 +52,16 @@ let renderData = async function (city) {
   infoHead.appendChild(tempInfo);
   infoContainer.appendChild(infoHead);
 
-  const conditionInfo = document.createElement("li");
+  const otherInfo = document.createElement("li");
+  otherInfo.id = "other-info";
+  const conditionInfo = document.createElement("p");
   conditionInfo.id = "condition";
   conditionInfo.textContent = data.conditions;
-  infoContainer.appendChild(conditionInfo);
+  otherInfo.append(conditionInfo);
+  const img = document.createElement("img");
+  img.src = icons[data.icon];
+  otherInfo.append(img);
+  infoContainer.appendChild(otherInfo);
 
   const humidityInfo = document.createElement("li");
   humidityInfo.textContent = `Humidity: ${data.humidity}%`;

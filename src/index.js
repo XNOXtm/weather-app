@@ -1,2 +1,2 @@
 import "./styles.css";
-import "./render.js";
+import "./models/render.js";

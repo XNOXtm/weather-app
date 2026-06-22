@@ -11,7 +11,6 @@ export async function getData(city) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=JFCUF9KXF852RCXHFKG2THHRC`,
     );
     let weatherData = await response.json();
-    //   console.log(weatherData.currentConditions.icon);
 
     const currentTemp = await weatherData.currentConditions.temp;
     const currentTempCelsius = convertToCelsius(currentTemp);
@@ -25,6 +24,8 @@ export async function getData(city) {
     const feelsLikeTemp = await weatherData.days[0].feelslike;
     const feelsLikeTempCelsius = convertToCelsius(feelsLikeTemp);
 
+    const icon = await weatherData.currentConditions.icon;
+
     const humidity = Math.round(weatherData.currentConditions.humidity);
 
     const conditions = weatherData.currentConditions.conditions;
@@ -36,6 +37,7 @@ export async function getData(city) {
       maxTempCelsius,
       minTempCelsius,
       feelsLikeTempCelsius,
+      icon,
       humidity,
       conditions,
       sunrise,
